@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id('id_moto');
             $table->string('nombre');
             $table->string('model');
-            $table->decimal('precio', 5, 2);
-            $table->string('bono');
-            $table->string('precio_base');
+            $table->decimal('precio', 12, 2);
+            $table->decimal('bono', 12, 2);
+            $table->decimal('precio_base', 12, 2);
             $table->timestamps();
         });
     }

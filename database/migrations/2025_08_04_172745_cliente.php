@@ -16,8 +16,7 @@ return new class extends Migration
             $table->string('nombre');
             $table->string('apellidos');
             $table->string('cupon');
-            $table->timestamps();
-
+            
             $table->foreignId('id_moto')->references('id_moto')->on('moto')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
