@@ -14,7 +14,16 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        //User::factory(20)->create();
+
+        // Crear un usuario con los campos especificados
+        User::create([
+            'name' => 'Usuario Ejemplo',
+            'email' => 'usuario@ejemplo.com',
+            'email_verified_at' => now(),
+            'password' => bcrypt('password123'),
+            'remember_token' => \Illuminate\Support\Str::random(10),
+        ]);
+
         Moto::factory(20)->create();
 
         // User::factory()->create([
