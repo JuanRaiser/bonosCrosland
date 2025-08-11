@@ -15,7 +15,12 @@ const mainNavItems: NavItem[] = [
     },
     {
         title: 'Agregar Moto',
-        href: 'agregarmoto',
+        href: '/agregarmoto',
+        icon: PlusCircle,
+    },
+    {
+        title: 'Agregar cupon',
+        href: '/agregarcupon',
         icon: PlusCircle,
     },
 ];

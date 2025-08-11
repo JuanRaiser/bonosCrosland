@@ -17,6 +17,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
         return Inertia::render('agregarmoto');
     })->name('agregarmoto');
 });
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('agregarcupon', function () {
+        return Inertia::render('agregarCupon');
+    })->name('agregarCupon');
+});
 
 require __DIR__.'/settings.php';
 require __DIR__.'/auth.php';
