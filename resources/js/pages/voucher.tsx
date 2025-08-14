@@ -5,18 +5,18 @@ import { Head } from '@inertiajs/react';
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
-        title: 'Panel',
-        href: '/dashboard',
+        title: 'Voucher',
+        href: '/voucher',
     },
 ];
 
-export default function AgregarMoto() {
+export default function voucher() {
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
-            <Head title="Agregar Moto" />
+            <Head title="Voucher" />
             <div className="flex h-full flex-1 flex-col gap-4 rounded-xl p-4 overflow-x-auto">
                 <div className="">
-                    Crear Moto
+                    voucher
                 </div>
             </div>
         </AppLayout>

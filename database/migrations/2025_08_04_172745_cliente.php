@@ -12,14 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('cliente', function (blueprint $table) {
-            $table->id('id_cliente');//DNI
+            $table->id('id_cliente');
+            $table->string('dni');
             $table->string('nombre');
             $table->string('apellidos');
-            $table->string('cupon');
+            $table->timestamps();
             
-            $table->foreignId('id_moto')->references('id_moto')->on('moto')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
         });
     }
 

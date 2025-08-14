@@ -11,6 +11,8 @@ class Moto extends Model
 
     use HasFactory, Notifiable;
     protected $table = 'moto'; // Specify the correct table name
+
+    protected $primaryKey = 'id_moto';
     protected $fillable = [
         'nombre',
         'model',

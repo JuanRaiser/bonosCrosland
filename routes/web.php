@@ -2,26 +2,32 @@
 
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\VoucherController;
+
+// Mostrar formulario para revisar cupón
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/revisarcupon', [ClienteController::class, 'create'])
+        ->name('cliente.create');
+
+    Route::middleware(['auth', 'verified'])->group(function () {
+        Route::get('dashboard', function () {
+            return Inertia::render('dashboard');
+        })->name('dashboard');
+    });
+    // Mostrar formulario de voucher
+    Route::get('/voucher', function () {
+        return Inertia::render('voucher');
+    })->name('voucher');
+
+    // Guardar voucher
+    Route::post('/vouchers', [VoucherController::class, 'store'])
+        ->name('voucher.store');
+});
 
 Route::get('/', function () {
     return Inertia::render('welcome');
 })->name('home');
 
-Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('dashboard', function () {
-        return Inertia::render('dashboard');
-    })->name('dashboard');
-});
-Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('agregarmoto', function () {
-        return Inertia::render('agregarmoto');
-    })->name('agregarmoto');
-});
-Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('agregarcupon', function () {
-        return Inertia::render('agregarCupon');
-    })->name('agregarCupon');
-});
-
-require __DIR__.'/settings.php';
-require __DIR__.'/auth.php';
+require __DIR__ . '/settings.php';
+require __DIR__ . '/auth.php';
