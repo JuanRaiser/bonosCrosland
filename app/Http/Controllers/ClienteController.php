@@ -14,7 +14,7 @@ class ClienteController extends Controller
 {
     public function create()
     {
-        $motos = Moto::select('id_moto', 'nombre', 'model')->get();
+        $motos = Moto::select('id_moto', 'nombre', 'model', 'precio', 'bono')->get();
 
         return Inertia::render('Revisarcupon', [
             'motos' => $motos,
@@ -38,9 +38,9 @@ class ClienteController extends Controller
         $moto = Moto::findOrFail($request->moto_id);
 
         \DB::table('vouchers')->insert([
-        'id_cliente'   => $cliente->id,  // asumiendo PK = id
-        'id_moto'      => $moto->id,
-        'precio_final' => $moto->precio,
+        'id_cliente'   => $cliente->id_cliente,  // asumiendo PK = id
+        'id_moto'      => $moto->id_moto,
+        'precio_final' => $moto->precio_base,
         'created_at'   => now(),
         'updated_at'   => now(),
     ]);

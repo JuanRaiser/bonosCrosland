@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('voucher', function (blueprint $table) {
             $table->id('id_voucher');
-            $table->decimal('precio_final', 5, 2);
+            $table->decimal('precio_final', 8, 2);
             $table->timestamps();
 
             $table->foreignId('id_cliente')->references('id_cliente')->on('cliente')

@@ -13,4 +13,10 @@ class Cliente extends Model
     protected $fillable = [
         'dni', 'nombre', 'apellidos',
     ];
+    public function voucher()
+{
+    return $this->hasOne(Voucher::class, 'id_cliente');
 }
+
+}
+

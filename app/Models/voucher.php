@@ -17,4 +17,9 @@ class voucher extends Model
         'id_moto',
         'precio_final',
     ];
+    public function moto()
+{
+    return $this->belongsTo(Moto::class, 'id_moto');
+}
+
 }

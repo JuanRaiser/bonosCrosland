@@ -16,12 +16,14 @@ Route::middleware(['auth', 'verified'])->group(function () {
         })->name('dashboard');
     });
     // Mostrar formulario de voucher
-    Route::get('/voucher', function () {
-        return Inertia::render('voucher');
-    })->name('voucher');
+    // Route::get('/voucher', function () {
+    //     return Inertia::render('voucher');
+    // })->name('voucher');
+    Route::get('/voucher', [VoucherController::class, 'index'])->name('voucher.index');
+
 
     // Guardar voucher
-    Route::post('/vouchers', [VoucherController::class, 'store'])
+    Route::post('/voucher', [VoucherController::class, 'store'])
         ->name('voucher.store');
 });
 

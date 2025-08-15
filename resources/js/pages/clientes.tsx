@@ -21,4 +21,6 @@ export default function Cliente() {
             </div>
         </AppLayout>
     );
+    
 }
+
